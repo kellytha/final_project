@@ -1,0 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STEMQuest - Coding Challenges</title>
+    <link rel="stylesheet" href="{% static 'style1.css' %}">
+</head>
+<body>
+    <header>
+        <h1>STEMQuest - Coding Challenges</h1>
+    </header>
+    <main>
+        <section id="coding">
+            <h2>Available Coding Challenges</h2>
+            {% if coding_challenges %}
+                {% for challenge in coding_challenges %}
+                    <div class="challenge">
+                        <h3>{{ challenge.title }}</h3>
+                        <p>{{ challenge.description }}</p>
+                        <p><strong>Difficulty:</strong> {{ challenge.difficulty }}</p>
+                        <p><small>Posted on: {{ challenge.created_at|date:"F j, Y" }}</small></p>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <p>No coding challenges available at the moment.</p>
+            {% endif %}
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 STEMQuest</p>
+    </footer>
+</body>
+</html>

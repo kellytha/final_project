@@ -1,0 +1,29 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Profile</title>
+    <link rel="stylesheet" href="{% static 'styles1.css' %}">
+</head>
+<body>
+    <h1>Welcome to your profile page, {{ user.username }}!</h1>
+    <div class="navbar">
+        <a href="{% url 'index' %}" class="active">Experiment</a>
+        <a href="{% url 'coding_challenges' %}">Coding Challenges</a>
+        <a href="">Logout</a>
+    </div>
+    
+    <h2>Your STEM Learning Resources</h2>
+    <ul>
+        {% for resource in stem_resources %}
+            <li>
+                <strong>{{ resource.title }}</strong>: {{ resource.description }}
+            </li>
+        {% empty %}
+            <li>No STEM resources available.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
+

@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STEMQuest - Experiments</title>
+    <link rel="stylesheet" href="{% static 'style1.css' %}">
+</head>
+<body>
+    <header>
+        <h1>STEMQuest - Hands-On Experiments</h1>
+    </header>
+    <main>
+        <section id="experiments">
+            <h2>Available Experiments</h2>
+            {% if experiments %}
+                {% for experiment in experiments %}
+                    <h3>{{ experiment.title }}</h3>
+                    <p>{{ experiment.description }}</p>
+                {% endfor %}
+            {% else %}
+                <p>No experiments available at the moment.</p>
+            {% endif %}
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 STEMQuest</p>
+    </footer>
+</body>
+</html>
