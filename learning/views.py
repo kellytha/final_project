@@ -35,17 +35,16 @@ coding_challenges_data = [
     {'title': 'Challenge 2', 'description': 'Description of Challenge 2'}
 ]
 
-# views.py
 from django.shortcuts import render
 from .models import Experiment
 
 def experiments_view(request):
-    experiments = Experiment.objects.all()  # Fetch all experiments from the database
+    experiments = Experiment.objects.all() 
     return render(request, 'learning/index.html', {'experiments': experiments})
 
 
 def coding_challenges_view(request):
-    coding_challenges = CodingChallenge.objects.all()  # Fetch all coding challenges from the database
+    coding_challenges = CodingChallenge.objects.all()  
     return render(request, 'learning/codingchallenges.html', {'coding_challenges': coding_challenges})
 
 @login_required
@@ -73,10 +72,10 @@ def register(request):
         form = UserRegistrationForm()
     return render(request, 'learning/register.html', {'form': form})
 
-    # views.py
+    
 
 def profile(request):
-    # Hardcoded list of STEM learning resources
+    
     stem_resources = [
         {'title': 'Khan Academy', 'description': 'Free online courses, lessons, and practice in math, science, computer programming, history, art history, economics, and more.'},
         {'title': 'Coursera', 'description': 'Online courses from top universities and organizations worldwide.'},
